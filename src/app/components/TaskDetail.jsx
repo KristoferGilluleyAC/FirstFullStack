@@ -1,15 +1,49 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const TaskDetail = ({
     id,
     comments,
     task,
-    isComplete
+    isComplete,
+    groups
+    
 })=>(
-    <div>Task Detail</div>
+    <div>
+        <div>
+            <input value={task.name}/>
+        </div>
+        <div>
+            <button>Complete / Reopen Task</button>
+        </div>
+
+        <div>
+            <select >
+                {groups.map(group=>(
+                    <option key={group.id} value={group.id}>{group.name}</option>
+                ))}
+            </select>
+        </div>
+        <div>
+            <Link to="/dashboard">
+                <button>Done</button>
+            </Link>
+        </div>
+    </div>
 );
 
-const maptStateToProps = state=>state;
+const mapStateToProps = (state, ownProps) => {
+    let id = ownProps.match.params.id;
+    let task = state.tasks.find(task => task.id === id);
+    let groups = state.groups;
 
-export const ConnectTaskDetail = connect (maptStateToProps)(TaskDetail);
+    return {
+        id,
+        task,
+        groups,
+        isComplete:task.isComplete
+    }
+}
+
+export const ConnectTaskDetail = connect (mapStateToProps)(TaskDetail);
