@@ -10,7 +10,8 @@
     "test-connect": "babel-node src/server/connect-db",
     "initalise": "babel-node src/server/initalize-db",
     "server": "babel-node src/server/server",
-    "server-test": "babel-node src/server/server.spec"
+    "server-test": "babel-node src/server/server.spec",
+    "start-dev": "concurrently \"npm run server\" \"npm run dev\" "
   },
   "repository": {
     "type": "git",
@@ -30,16 +31,21 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "body-parser": "^1.20.0",
     "concurrently": "^4.0.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.7"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
     "history": "^4.7.2",
+    "mongodb": "^4.8.1",
     "react": "^16.4.2",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
+    "react-router": "^6.3.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
