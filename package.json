@@ -8,7 +8,9 @@
     "start": "webpack",
     "dev": "webpack-dev-server --open",
     "test-connect": "babel-node src/server/connect-db",
-    "initalise": "babel-node src/server/initalize-db"
+    "initalise": "babel-node src/server/initalize-db",
+    "server": "babel-node src/server/server",
+    "server-test": "babel-node src/server/server.spec"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.2",
-    "mongodb": "^3.1.10",
+    "concurrently": "^4.0.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.7"
